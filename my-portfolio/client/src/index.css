@@ -1,13 +1,69 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  /* 1. Bảng màu chủ đạo */
+  --bg-body: #000000;       /* Nền đen tuyền */
+  --bg-card: #121212;       /* Nền các ô/card */
+  --bg-hover: #1f1f1f;      /* Màu khi di chuột vào */
+  
+  --text-main: #ffffff;     /* Chữ trắng tinh */
+  --text-sub: #b3b3b3;      /* Chữ phụ màu xám */
+
+  /* 2. Màu nhấn (Xanh - Cam) */
+  --accent-blue: #00c6ff;
+  --accent-orange: #ff7b00;
+  
+  /* Gradient Xanh-Cam */
+  --gradient-primary: linear-gradient(135deg, #00c6ff 0%, #ff7b00 100%);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Reset mặc định */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', sans-serif; /* Giữ font cũ cho đẹp */
+}
+
+/* Tùy chỉnh thanh cuộn */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-body); }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-orange); }
+
+/* Class tiện ích */
+.bg-glass {
+  background: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-gradient {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-gradient:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 123, 0, 0.4);
+}
+
+.custom-card {
+  background-color: var(--bg-card);
+  border: 1px solid #2a2a2a;
+  color: var(--text-main);
+}
+
+/* Input style override */
+input::placeholder {
+  color: #555;
 }
