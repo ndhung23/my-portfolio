@@ -1,16 +1,31 @@
-import React from 'react';
+import Navbar from '../components/Navbar';
+import LeftSidebar from '../components/LeftSidebar';
+import Feed from '../components/Feed';
+import RightSidebar from '../components/RightSidebar';
 
 export default function Home() {
   return (
-    <div className="container mt-5">
-      <div className="card text-center">
-        <div className="card-header">
-          Trang Chủ
-        </div>
-        <div className="card-body">
-          <h5 className="card-title">Chào mừng đến với Mạng xã hội của bạn!</h5>
-          <p className="card-text">Đây là nơi sẽ hiển thị Newsfeed (bảng tin).</p>
-          <a href="/login" className="btn btn-primary">Đăng xuất (Về Login)</a>
+    <div style={{ backgroundColor: "#18191a", minHeight: "100vh", color: "white" }}>
+      <Navbar />
+      
+      <div className="container-fluid px-lg-5 py-4" style={{ marginTop: '70px' }}>
+        <div className="row g-4">
+          
+          {/* Cột trái */}
+          <div className="col-lg-3 d-none d-lg-block">
+            <LeftSidebar />
+          </div>
+
+          {/* Cột giữa */}
+          <div className="col-12 col-lg-6">
+            <Feed />
+          </div>
+
+          {/* Cột phải */}
+          <div className="col-lg-3 d-none d-lg-block">
+            <RightSidebar />
+          </div>
+
         </div>
       </div>
     </div>
