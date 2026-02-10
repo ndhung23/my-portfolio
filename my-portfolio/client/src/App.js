@@ -1,20 +1,23 @@
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Home from "./pages/Home";
+
 function App() {
+  // Giả sử chưa đăng nhập thì user là null
+  const user = false; 
+
   return (
-    <div className="container mt-5">
-      <h1 className="text-primary text-center">Hello, đây là Portfolio của Hưng!</h1>
-      
-      <div className="card text-center mt-4">
-        <div className="card-header">
-          Test Bootstrap
-        </div>
-        <div className="card-body">
-          <h5 className="card-title">Giao diện đã nhận Bootstrap</h5>
-          <p className="card-text">Nếu bạn thấy nút màu xanh bên dưới đẹp trai thì là thành công.</p>
-          <button className="btn btn-primary">Nút bấm Bootstrap</button>
-          <button className="btn btn-danger ms-2">Nút Cancel</button>
-        </div>
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        
+        {/* Nếu đã đăng nhập thì đẩy về Home, chưa thì cho vào Login */}
+        <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+        
+        <Route path="/register" element={user ? <Navigate to="/" /> : <Register />} />
+      </Routes>
+    </Router>
   );
 }
 
